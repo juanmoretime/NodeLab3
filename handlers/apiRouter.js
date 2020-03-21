@@ -9,7 +9,6 @@ router.get('/images/:id', helper.ensureAuthenticated,  (req, resp) => {
       if (err) {
          resp.json({ message: 'Image not found' });
       } else {
-         console.log(data);
          resp.json(data);
       }
    });   

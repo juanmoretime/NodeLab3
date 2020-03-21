@@ -21,7 +21,7 @@ const userSchema = new mongoose.Schema({
     likes: Number
    },
    email: String,
-   password_bcrypt: String,
+   password: String,
    apikey: String
  });
 
@@ -36,8 +36,7 @@ const userSchema = new mongoose.Schema({
 
 userSchema.methods.isValidPassword = async function(formPassword){
   const user = this;
-  const hash = user.password_bcrypt;
-
+  const hash = user.password;
   const compare = bcrypt.compare(formPassword, hash);
   return compare;
 }
